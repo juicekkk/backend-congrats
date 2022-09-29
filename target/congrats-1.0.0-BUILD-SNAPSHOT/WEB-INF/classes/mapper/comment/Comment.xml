@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jsk.congrats">
+
+    <select id="getCommentList"  resultType="com.jsk.congrats.api.vo.CommentVo">
+        SELECT cNum, writer, content, regDate FROM comment_tbl ORDER BY regDate DESC
+    </select>
+
+    <select id="getCommentPwd"  resultType="String" parameterType="String">
+        SELECT pwd FROM comment_tbl where cNum = #{value}
+    </select>
+
+    <insert id="regComment" parameterType="com.jsk.congrats.api.vo.CommentRegVo">
+        INSERT INTO comment_tbl
+             ( writer
+             , pwd
+             , content
+             , regDate)
+        VALUES
+             ( #{writer}
+             , #{pwd}
+             , #{content}
+             , NOW())
+    </insert>
+
+    <update id="delComment" parameterType="com.jsk.congrats.api.vo.CommentDelVo">
+        DELETE FROM comment_tbl WHERE cNum = #{cNum}
+    </update>
+
+</mapper>
