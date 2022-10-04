@@ -5,7 +5,7 @@
 <mapper namespace="com.jsk.congrats">
 
     <select id="getCommentList"  resultType="com.jsk.congrats.api.vo.CommentVo">
-        SELECT cNum, writer, content, regDate FROM comment_tbl ORDER BY regDate DESC
+        SELECT cNum, writer, content, regDate FROM comment_tbl WHERE delChk = 'N' ORDER BY regDate DESC
     </select>
 
     <select id="getCommentPwd"  resultType="String" parameterType="String">
@@ -26,7 +26,9 @@
     </insert>
 
     <update id="delComment" parameterType="com.jsk.congrats.api.vo.CommentDelVo">
-        DELETE FROM comment_tbl WHERE cNum = #{cNum}
+        UPDATE comment_tbl
+           SET delChk='Y'
+         WHERE cNum = #{cNum}
     </update>
 
 </mapper>
