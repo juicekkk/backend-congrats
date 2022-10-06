@@ -12,8 +12,8 @@ import java.util.List;
 @Mapper
 public class CommentDao extends BaseDao {
 
-    public List<CommentVo> getCommentList() {
-        return (List<CommentVo>) this.list("getCommentList");
+    public List<CommentVo> getCommentList(String main) {
+        return (List<CommentVo>) this.list("getCommentList", main);
     }
 
     public String getCommentPwd(String cNum) {

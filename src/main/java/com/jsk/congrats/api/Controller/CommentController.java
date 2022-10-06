@@ -21,8 +21,8 @@ public class CommentController {
 
 	@RequestMapping(value = "comment", method = RequestMethod.GET)
 	@ResponseBody
-	public List<CommentVo> select() {
-		List<CommentVo> comment = commentService.getCommentList();
+	public List<CommentVo> select(@RequestParam(value = "main") String main) {
+		List<CommentVo> comment = commentService.getCommentList(main);
 		return comment;
 	}
 

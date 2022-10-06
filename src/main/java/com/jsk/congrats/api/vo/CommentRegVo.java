@@ -2,9 +2,18 @@ package com.jsk.congrats.api.vo;
 
 public class CommentRegVo {
 
+    String main;
     String writer;
     String pwd;
     String content;
+
+    public String getMain() {
+        return main;
+    }
+
+    public void setMain(String main) {
+        this.main = main;
+    }
 
     public String getWriter() {
         return writer;

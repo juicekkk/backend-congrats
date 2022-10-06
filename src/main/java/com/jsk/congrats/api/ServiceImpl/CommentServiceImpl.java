@@ -22,8 +22,8 @@ public class CommentServiceImpl implements CommentService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public List<CommentVo> getCommentList() {
-        return dao.getCommentList();
+    public List<CommentVo> getCommentList(String main) {
+        return dao.getCommentList(main);
     }
 
     @Override

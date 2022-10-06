@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public interface CommentService {
 
-    public List<CommentVo> getCommentList();
+    public List<CommentVo> getCommentList(String main);
 
     public Integer regComment(CommentRegVo commentRegVo);
 
